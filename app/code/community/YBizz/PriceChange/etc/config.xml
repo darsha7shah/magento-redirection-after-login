@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <YBizz_PriceChange>
+            <version>0.1.0</version>
+        </YBizz_PriceChange>
+    </modules>
+	
+
+		  
+    <global>
+        <models>
+            <ybizz_pricechange>
+                <class>YBizz_PriceChange_Model</class>
+            </ybizz_pricechange>
+        </models>
+        <events>			
+            <controller_action_layout_load_before>
+                <observers>
+                    <ybizz_pricechange_observer>
+                        <class>ybizz_pricechange/observer</class>
+                        <method>homepagechk</method>
+                    </ybizz_pricechange_observer>
+                </observers>
+            </controller_action_layout_load_before>
+            <controller_action_postdispatch_customer_account_loginPost>
+                <observers>
+                    <ybizz_pricechange_observer>
+                        <class>ybizz_pricechange/observer</class>
+                        <method>homeRedirect</method>
+                    </ybizz_pricechange_observer>
+                </observers>
+            </controller_action_postdispatch_customer_account_loginPost>
+        </events>
+    </global>
+</config>
